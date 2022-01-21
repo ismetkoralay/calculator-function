@@ -7,9 +7,14 @@ it("parseString method returns an empty array when input is empty", () => {
     expect(result.length).toEqual(0);
 });
 
+it("parseString method returns an array when input is valid", () => {
+    const result = parseService.parseString(stringExtensions.unicodeTob64("2 +4/3-(2+-5)*.5++1"));
+    expect(result.length).toEqual(19);
+});
+
 it("parseString method throws exception if input has invalid characters", () => {
     try {
-        const result = parseService.parseString(stringExtensions.unicodeTob64("2+%4=2"));
+        parseService.parseString(stringExtensions.unicodeTob64("2+%4=2"));
     } catch (error) {
         return;
     }
@@ -19,7 +24,7 @@ it("parseString method throws exception if input has invalid characters", () => 
 
 it("parseString method throws exception if input contains unmatching parenthesis", () => {
     try {
-        const result = parseService.parseString(stringExtensions.unicodeTob64("(2+2))"));
+        parseService.parseString(stringExtensions.unicodeTob64("(2+2))"));
     } catch (error) {
         return;
     }
@@ -29,7 +34,7 @@ it("parseString method throws exception if input contains unmatching parenthesis
 
 it("parseString method throws exception if input contains invalid operator sequence", () => {
     try {
-        const result = parseService.parseString(stringExtensions.unicodeTob64("2+89*-76/24+(88/2+--34)"));
+        parseService.parseString(stringExtensions.unicodeTob64("2+89*-76/24+(88/2+--34)"));
     } catch (error) {
         return;
     }
@@ -39,7 +44,7 @@ it("parseString method throws exception if input contains invalid operator seque
 
 it("parseString method throws exception if input contains invalid float", () => {
     try {
-        const result = parseService.parseString(stringExtensions.unicodeTob64("2+2.5.55"));
+        parseService.parseString(stringExtensions.unicodeTob64("2+2.5.55"));
     } catch (error) {
         return;
     }
