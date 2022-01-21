@@ -9,12 +9,9 @@ provider:
   stage: dev
   lambdaHashingVersion: 20201221
 
-custom:
-  functionsBasePath: src/functions
-
 functions:
   calculus:
-    handler: calculus.calculus
+    handler: src/functions/calculus.calculus
     events:
       - httpApi:
           path: /calculus
@@ -22,4 +19,4 @@ functions:
 
 plugins:
   - serverless-plugin-typescript
-  - serverless-functions-base-path
+
