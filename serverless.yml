@@ -1,0 +1,25 @@
+service: calculator
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+  profile: serverless-admin
+  stage: dev
+  lambdaHashingVersion: 20201221
+
+custom:
+  functionsBasePath: src/functions
+
+functions:
+  calculus:
+    handler: calculus.calculus
+    events:
+      - httpApi:
+          path: /calculus
+          method: get
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-functions-base-path
