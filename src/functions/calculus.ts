@@ -28,7 +28,7 @@ export const calculus = async (event: APIGatewayProxyEvent) => {
         return jsonResponse(200, result.toString());
     } catch (error) {
         const statusCode = error instanceof CustomError ? error.statusCode : 500;
-        const message = error instanceof CustomError ? error.message : error as string;
+        const message = error instanceof CustomError ? error.message : (error as Error).message;
         return jsonResponse(statusCode, message);
     }
 }
