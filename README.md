@@ -18,3 +18,11 @@ npm install serverless -g
 ```bash
 serverless config credentials --provider aws --key xxx -- secret yyy --profile serverless-admin
 ```
+
+## Deploy the function
+
+- The command below will deploy your function and provide you an api gateway endpoint in the output. You can use it to test the function. You should provide query querystring to test it. The value of the query should be encoded with base64.
+
+```bash
+serverless deploy --verbose
+```
