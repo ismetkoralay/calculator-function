@@ -1,0 +1,8 @@
+node_modules
+.github
+.serverless
+lib
+coverage
+*build*
+babel.config.cjs
+jest.config.js

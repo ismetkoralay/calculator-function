@@ -4,7 +4,8 @@
   "description": "Calculator function for mathematical expression",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config=jest.config.js"
+    "test": "jest --config=jest.config.js",
+    "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
     "@babel/core": "^7.16.10",
@@ -13,8 +14,11 @@
     "@types/aws-lambda": "^8.10.91",
     "@types/jest": "^27.4.0",
     "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
     "aws-lambda": "^1.0.7",
     "babel-jest": "^27.4.6",
+    "eslint": "^8.7.0",
     "jest": "^27.4.7",
     "serverless-plugin-typescript": "^2.1.0",
     "supertest": "^6.2.2",

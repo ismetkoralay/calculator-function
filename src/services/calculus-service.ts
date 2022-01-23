@@ -9,11 +9,11 @@ class CalculusService {
         const postFixArray: (string | number)[] = [];
         const opStack: string[] = [];
 
-        for (let elem of tokensArray) {
+        for (const elem of tokensArray) {
             if (elem.type === "number") {
                 postFixArray.push(elem.value);
             } else {
-                var op = elem.value as string;
+                const op = elem.value as string;
                 if (op === "(") {
                     opStack.push(op);
                 } else if (op === ")") {
@@ -48,7 +48,7 @@ class CalculusService {
     evaluatePostfix(postfixArray: (string | number)[]): number {
         const callStack: number[] = [];
 
-        for (let elem of postfixArray) {
+        for (const elem of postfixArray) {
             if (operators.has(elem as string)) {
                 const second = callStack.pop();
                 const first = callStack.pop();

@@ -14,8 +14,8 @@ class ParseService {
         const decoded = stringExtensions.b64DecodeUnicode(input);
         const expression = decoded.trim();
         const tokensArray: TokenModel[] = [];
-        let openParenthesisCount = { value: 0};
-        let closedParenthesisCount = { value: 0};
+        const openParenthesisCount = { value: 0};
+        const closedParenthesisCount = { value: 0};
 
         for (let i = 0; i < expression.length; i++) {
             const char = expression[i];
@@ -81,8 +81,8 @@ class ParseService {
             i++;
         }
 
-        var count = (num.match(/\./g) || []).length;
-        if (count > 1) {
+        const dotCount = (num.match(/\./g) || []).length;
+        if (dotCount > 1) {
             throw new CustomError(400, "Invalid query!!");
         }
 
