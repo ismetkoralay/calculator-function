@@ -3,7 +3,7 @@ import { calculusService } from "../calculus-service";
 
 const validTokenModelArray: TokenModel[] = [{
     type: "number",
-    value: 3
+    value: 0
 }, {
     type: "operator",
     value: "+"

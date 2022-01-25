@@ -50,17 +50,17 @@ class CalculusService {
 
         for (const elem of postfixArray) {
             if (operators.has(elem as string)) {
-                const second = callStack.pop();
-                const first = callStack.pop();
-                if (!second || !first) {
-                    throw new CustomError(400, "Invalid query.");
+                const second = callStack.pop() as number;
+                const first = callStack.pop() as number;
+                if(isNaN(second) || isNaN(first)) {
+                    throw new CustomError(400, "new error");
                 }
                 switch (elem) {
                     case "*":
-                        callStack.push(first * second);
+                        callStack.push(first! * second!);
                         break;
                     case "/":
-                        callStack.push(first / second);
+                        callStack.push(first! / second);
                         break;
                     case "+":
                         callStack.push(first + second);
@@ -82,6 +82,7 @@ class CalculusService {
 
         return callStack.pop()!;
     }
+
 }
 
 const calculusService = new CalculusService();
